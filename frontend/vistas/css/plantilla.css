@@ -1,0 +1,108 @@
+/*=============================================
+ GLOBAL
+=============================================*/
+*{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Ubunt', sans-serif;
+}
+
+ul, ol{
+  padding: 0px;
+}
+
+a:visited, a:link, a:focus, a:hover, a:active{
+  list-style: none;
+  text-decoration: none;
+}
+
+.barraSuperior{
+  background: black;
+}
+
+.barraSuperior a{
+  color: white;
+}
+
+.backColor, .backColor a{
+  background: #47bac1;
+  color: white;
+}
+
+/*=============================================
+ REDES SOCIALES
+=============================================*/
+.redSocial{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+/* FACEBOOK */
+.facebookColor{
+  color: white;
+  background: #46639f;
+}
+
+/* YOUTUBE */
+.youtubeColor{
+  color: white;
+  background: #d6513e;
+}
+
+/* INSTAGRAM */
+.instagramColor{
+  color: white;
+  background: linear-gradient(45deg, #fca925, #ee1d5f, #6350a2)
+}
+
+/*=============================================
+ ESCRITORIO GRANDE (LG en 1366px en adelante)
+=============================================*/
+@media (min-width:1200px){
+
+  .col-lg-0{
+    display: none;
+  }
+
+}
+
+/*=============================================
+ ESCRITORIO MEDIANO O TABLET HORIZONTAL (MD en 1024px )
+=============================================*/
+@media (max-width:1199px) and (min-width:992px){
+
+  .col-md-0{
+    display: none;
+  }
+
+}
+
+
+/*=============================================
+ ESCRITORIO PEQUEÑO O TABLET VERTICAL (SM en 768px )
+=============================================*/
+
+@media (max-width:991px) and (min-width:768px){
+
+  .col-sm-0{
+    display: none;
+  }
+
+
+}
+
+/*=============================================
+ MOVIL (XS en 320px )
+=============================================*/
+
+@media (max-width:767) {
+
+  .col-xs-0{
+    display: none;
+  }
+
+}
