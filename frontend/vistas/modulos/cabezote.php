@@ -115,74 +115,33 @@
     ==================================-->
 
 <div class="col-xs-12 backColor" id="categorias">
-  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-    <h4>
-      <a href="#" class="pixelCategorias">Lorem ipsum</a>
-  </h4>
-  <hr>
 
-  <ul>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-  </ul>
+    <?php
+      $categorias = ControladorProductos::ctrMostrarCategorias();
+      //var_dump($categorias);
 
-  </div>
+        foreach ($categorias as $key => $value) {
 
-  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-    <h4>
-      <a href="#" class="pixelCategorias">Lorem ipsum</a>
-  </h4>
-  <hr>
+          echo '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+              <h4>
+                <a href="'.$value["ruta"].'" class="pixelCategorias">'.$value["categoria"].'</a>
+            </h4>
+            <hr>
+            <ul>';
 
-  <ul>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-  </ul>
+            $subCategorias = ControladorProductos::ctrMostrarSubCategorias($value["id"]);
+             //var_dump($subCategorias);
 
-  </div>
+             foreach ($subCategorias as $key => $value) {
+               echo '<li><a href="'.$value["ruta"].'" class="pixelSubCategorias">'.$value["sub_categoria"].'</a></li>';
+             }
+                 echo '
+                  </ul>
+                      </div>';
+        }
+     ?>
 
 
-  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-    <h4>
-      <a href="#" class="pixelCategorias">Lorem ipsum</a>
-  </h4>
-  <hr>
-
-  <ul>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-  </ul>
-
-  </div>
-  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-    <h4>
-      <a href="#" class="pixelCategorias">Lorem ipsum</a>
-  </h4>
-  <hr>
-  <ul>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-    <li><a href="#" class="pixelSubCategorias">Lorem Ipsum</a></li>
-  </ul>
-
-  </div>
-
-</div>
-
-
-
-
-
+      </div>
   </div>
 </header>
