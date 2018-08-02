@@ -162,13 +162,10 @@ header #categorias hr{
  MOVIL (XS en 320px )
 =============================================*/
 
-@media (max-width:767) {
-
-
+@media (max-width:767px) {
   /*--==============================
           TOP
   ==================================--*/
-
 
 #top ul{
   text-align: center;
@@ -177,7 +174,6 @@ header #categorias hr{
 #top #registro{
   border-top: 1px solid #222;
 }
-
   /*--==============================
           HEADER
   ==================================--*/

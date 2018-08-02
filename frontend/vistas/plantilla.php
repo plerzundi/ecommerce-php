@@ -34,7 +34,7 @@
 
 
     <script src="<?php echo $url; ?>vistas/js/plugins/jquery.min.js"></script>
-    <script src="<?php echo $url; ?>vistas/js/plugins/bootstrap.min.js"></script>
+    <script src="<?php echo $url; ?>vistas/js/plugins/jquery.easing.js"></script>
 
 </head>
 <body>
@@ -97,7 +97,6 @@ if (isset($_GET["ruta"])) {
         include "modulos/error404.php";
 
    }
-
 
 }else{
   include "modulos/slide.php";

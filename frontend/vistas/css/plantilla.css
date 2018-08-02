@@ -121,7 +121,7 @@ color: #333;
  MOVIL (XS en 320px )
 =============================================*/
 
-@media (max-width:767) {
+@media (max-width:767px) {
 
   .col-xs-0{
     display: none;
