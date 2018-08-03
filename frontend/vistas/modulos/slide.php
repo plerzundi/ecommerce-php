@@ -8,89 +8,47 @@
               DIAPOSITIVAS
   ====================================-->
   <ul>
-    <!--SLIDE 1-->
-    <li>
-      <img src="http://localhost/backend/vistas/img/slide/default/back_default.jpg">
-      <div class="slideOpciones slideOpcion1">
-        <img class="imgProducto" src="http://localhost/backend/vistas/img/slide/slide1/calzado.png" style="top:15%; right:15%; width:45%">
-        <div class="textosSlide" style="top:20%; left:10%; width:40%">
-          <h1 style="color:#333">Ejemplo ejemplo</h1>
-          <h2 style="color:#777">Ejemplo2 Ejemplo2</h2>
-          <h3 style="color:#888;">Ejemplo3 Ejemplo 3</h3>
-          <a href="#">
-            <button class="btn btn-default backColor">
-              VER PRODUCTO <span class="fa fa-chevron-right"></span>
-            </button>
-          </a>
-        </div>
-      </div>
-    </li>
+    <?php
+        $slide = ControladorSlide::ctrMostrarSlide();
 
+      foreach ($slide as $key => $value) {
 
-    <!--SLIDE 2-->
-    <li>
-      <img src="http://localhost/backend/vistas/img/slide/default/back_default.jpg">
-      <div class="slideOpciones slideOpcion2">
-        <img class="imgProducto" src="http://localhost/backend/vistas/img/slide/slide2/curso.png" style="top:5%; left:15%; width:25%">
-        <div class="textosSlide" style="top:20%; right:10%; width:40%">
-          <h1 style="color: #333">Ejemplo ejemplo</h1>
-          <h2 style="color:#777">Ejemplo2 Ejemplo2</h2>
-          <h3 style="color:#888">Ejemplo3 Ejemplo 3</h3>
-          <a href="#">
-            <button class="btn btn-default backColor">
-              VER PRODUCTO <span class="fa fa-chevron-right"></span>
-            </button>
-          </a>
-        </div>
-      </div>
-    </li>
+        $estImgPro = json_decode($value["estilo_img_producto"],true);
+        $estTextSli = json_decode($value["estilo_texto_slide"],true);
+        $texto1 = json_decode($value["titulo1"],true);
+        $texto2 = json_decode($value["titulo2"],true);
+        $texto3 = json_decode($value["titulo3"],true);
+        //var_dump($estTextSli);
 
-    <!--SLIDE 3-->
-    <li>
-      <img src="http://localhost/backend/vistas/img/slide/slide3/fondo2.jpg">
-      <div class="slideOpciones slideOpcion2">
-        <img class="imgProducto" src="http://localhost/backend/vistas/img/slide/slide3/iphone.png" style="top:5%; left:15%; width:25%">
-        <div class="textosSlide" style="top:20%; right:10%; width:40%">
-          <h1 style="color:#eee">Ejemplo ejemplo</h1>
-          <h2 style="color:#ccc">Ejemplo2 Ejemplo2</h2>
-          <h3 style="color:#aaa">Ejemplo3 Ejemplo 3</h3>
-          <a href="#">
-            <button class="btn btn-default backColor">
-              VER PRODUCTO <span class="fa fa-chevron-right"></span>
-            </button>
-          </a>
-        </div>
-      </div>
-    </li>
-
-        <!--SLIDE 4-->
-
-    <li>
-      <img src="http://localhost/backend/vistas/img/slide/slide4/fondo3.jpg">
-      <div class="slideOpciones slideOpcion1">
-        <img class="imgProducto" src="" style="top:5%; right:15%; width:25%">
-        <div class="textosSlide" style="top:20%; left:10%; width:40%">
-          <h1 style="color:#333">Ejemplo ejemplo</h1>
-          <h2 style="color:#777">Ejemplo2 Ejemplo2</h2>
-          <h3>Ejemplo3 Ejemplo 3</h3>
-          <a href="#">
-            <button class="btn btn-default backColor">
-              VER PRODUCTO <span class="fa fa-chevron-right"></span>
-            </button>
-          </a>
-        </div>
-      </div>
-    </li>
+      echo '<li>
+          <img src="http://localhost/backend/'.$value["img_fondo"].'">
+          <div class="slideOpciones '.$value["tipo_slide"].'">
+            <img class="imgProducto" src="http://localhost/backend/'.$value["img_producto"].'" style="top:'.$estImgPro["top"].'; right:'.$estImgPro["right"].'; left:'.$estImgPro["left"].'; width:'.$estImgPro["width"].'">
+            <div class="textosSlide" style="top:'.$estTextSli["top"].'; left:'.$estTextSli["left"].'; right:'.$estTextSli["right"].'; width:'.$estTextSli["width"].'">
+              <h1 style="color:'.$texto1["color"].'">'.$texto1["texto"].'</h1>
+              <h2 style="color:'.$texto2["color"].'">'.$texto2["texto"].'</h2>
+              <h3 style="color:'.$texto3["color"].';">'.$texto3["texto"].'</h3>
+              <a href="'.$value["url"].'">
+                '.$value["boton"].'
+              </a>
+            </div>
+          </div>
+        </li>';
+        }
+     ?>
   </ul>
 
   <!--=========================================
                   PAGINACIÓN
   ==========================================-->
       <ol id="paginacion">
-        <li item="1"><span class="fa fa-circle"></span></li>
-        <li item="2"><span class="fa fa-circle"></span></li>
-        <li item="3"><span class="fa fa-circle"></span></li>
-        <li item="4"><span class="fa fa-circle"></span></li>
+
+        <?php
+            for ($i=1; $i  <= count($slide) ; $i++) {
+                echo '<li item="'.$i.'"><span class="fa fa-circle"></span></li>';
+            }
+
+         ?>
 
       </ol>
 <!--=========================================

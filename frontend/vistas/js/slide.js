@@ -13,6 +13,10 @@ var detenerIntervalo = false;
 var toggle = false;
 
 
+
+$("#slide ul li").css({"width":100/$("#slide ul li").length +"%"});
+$("#slide ul").css({"width":$("#slide ul li").length*100 +"%"});
+
 /*====================================
         ANIMACIÓN INICIAL
 ====================================*/
@@ -49,7 +53,7 @@ $("#paginacion li").click(function() {
 ====================================*/
 
 function avanzar() {
-  if (item == 3) {
+  if (item == $("#slide ul li").length-1) {
 
     item = 0;
   } else {
@@ -69,7 +73,7 @@ $("#slide #retroceder").click(function() {
 
   if (item == 0) {
 
-    item = 3;
+    item = $("#slide ul li").length-1;
 
   } else {
     item--;
