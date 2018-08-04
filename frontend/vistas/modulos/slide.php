@@ -22,9 +22,11 @@
 
       echo '<li>
           <img src="http://localhost/backend/'.$value["img_fondo"].'">
-          <div class="slideOpciones '.$value["tipo_slide"].'">
-            <img class="imgProducto" src="http://localhost/backend/'.$value["img_producto"].'" style="top:'.$estImgPro["top"].'; right:'.$estImgPro["right"].'; left:'.$estImgPro["left"].'; width:'.$estImgPro["width"].'">
-            <div class="textosSlide" style="top:'.$estTextSli["top"].'; left:'.$estTextSli["left"].'; right:'.$estTextSli["right"].'; width:'.$estTextSli["width"].'">
+          <div class="slideOpciones '.$value["tipo_slide"].'">';
+          if($value["img_producto"]!=""){
+              echo '<img class="imgProducto" src="http://localhost/backend/'.$value["img_producto"].'" style="top:'.$estImgPro["top"].'; right:'.$estImgPro["right"].'; left:'.$estImgPro["left"].'; width:'.$estImgPro["width"].'">';
+      }
+          echo '<div class="textosSlide" style="top:'.$estTextSli["top"].'; left:'.$estTextSli["left"].'; right:'.$estTextSli["right"].'; width:'.$estTextSli["width"].'">
               <h1 style="color:'.$texto1["color"].'">'.$texto1["texto"].'</h1>
               <h2 style="color:'.$texto2["color"].'">'.$texto2["texto"].'</h2>
               <h3 style="color:'.$texto3["color"].';">'.$texto3["texto"].'</h3>

@@ -59,6 +59,7 @@ function avanzar() {
   } else {
     item++;
   }
+  interrupirCiclo = true;
   movimientoSlide(item);
 }
 
