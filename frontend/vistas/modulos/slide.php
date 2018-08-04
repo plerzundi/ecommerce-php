@@ -9,6 +9,7 @@
   ====================================-->
   <ul>
     <?php
+        $servidor = Ruta::ctrRutaServidor();
         $slide = ControladorSlide::ctrMostrarSlide();
 
       foreach ($slide as $key => $value) {
@@ -21,10 +22,10 @@
         //var_dump($estTextSli);
 
       echo '<li>
-          <img src="http://localhost/backend/'.$value["img_fondo"].'">
+          <img src="'.$servidor.$value["img_fondo"].'">
           <div class="slideOpciones '.$value["tipo_slide"].'">';
           if($value["img_producto"]!=""){
-              echo '<img class="imgProducto" src="http://localhost/backend/'.$value["img_producto"].'" style="top:'.$estImgPro["top"].'; right:'.$estImgPro["right"].'; left:'.$estImgPro["left"].'; width:'.$estImgPro["width"].'">';
+              echo '<img class="imgProducto" src="'.$servidor.$value["img_producto"].'" style="top:'.$estImgPro["top"].'; right:'.$estImgPro["right"].'; left:'.$estImgPro["left"].'; width:'.$estImgPro["width"].'">';
       }
           echo '<div class="textosSlide" style="top:'.$estTextSli["top"].'; left:'.$estTextSli["left"].'; right:'.$estTextSli["right"].'; width:'.$estTextSli["width"].'">
               <h1 style="color:'.$texto1["color"].'">'.$texto1["texto"].'</h1>
