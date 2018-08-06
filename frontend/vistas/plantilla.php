@@ -11,11 +11,8 @@
     <meta name="keyword" content="Lorem Impsum, Dolore dolore">
     <title>Tienda Virtual</title>
 
-
     <?php
-
       $servidor = Ruta::ctrRutaServidor();
-
       $icono = ControladorPlantilla::ctrEstiloPlantilla();
       echo  '<link rel="icon" href="'.$servidor.$icono["icono"].'">';
 
@@ -23,18 +20,26 @@
                   MANTENER FIJA LA RUTA DEL PROYECTO
       ==========================================================*/
       $url = Ruta::ctrRuta();
-
      ?>
+
+     <!--==========================================================
+                      PLUGINS CSS
+     ============================================================-->
 
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/font-awesome.min.css">
 
+    <!--==========================================================
+                HOJAS DE ESTILOS PERSONALIZADAS
+    ============================================================-->
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plantilla.css">
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/cabezote.css">
-      <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/slide.css">
+    <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/slide.css">
+    <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/productos.css">
 
-
-
+    <!--==========================================================
+                PLUGINS DE JAVASCRIPT
+    ============================================================-->
     <script src="<?php echo $url; ?>vistas/js/plugins/jquery.min.js"></script>
     <script src="<?php echo $url; ?>vistas/js/plugins/jquery.easing.js"></script>
 
@@ -102,10 +107,13 @@ if (isset($_GET["ruta"])) {
 
 }else{
   include "modulos/slide.php";
+  include "modulos/destacados.php";
 }
 ?>
 
-
+      <!--==========================================================
+                       JAVASCRIPT PERSONALIZADOS
+      ============================================================-->
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/cabezote.js"></script>
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/slide.js"></script>
