@@ -68,7 +68,7 @@
         <!--=========================================
               VITRINA DE  PRODUCTOS EN CUADRÍCULA
         ==========================================-->
-        <ul class="grid0" style="display: none">
+        <ul class="grid0">
             <!-- PRODUCTO 1 -->
 
             <li class="col-lg-3 col-md-3  col-sm-6 col-xs-12">
@@ -255,7 +255,7 @@
         <!--=========================================
             VITRINA DE  PRODUCTOS EN LISTA
         ==========================================-->
-        <ul class="list0">
+        <ul class="list0" style="display: none">
             <!-- PRODUCTO 1-->
             <li class="col-xs-12">
                 <!--==================================================-->
@@ -491,7 +491,7 @@
         <!--=========================================
               VITRINA DE  PRODUCTOS EN CUADRÍCULA
         ==========================================-->
-        <ul class="grid1" style="display: none">
+        <ul class="grid1">
 
             <!-- PRODUCTO 1 -->
             <li class="col-lg-3 col-md-3  col-sm-6 col-xs-12">
@@ -683,7 +683,7 @@
         <!--=========================================
               VITRINA DE  PRODUCTOS EN LISTA
         ==========================================-->
-        <ul class="list1">
+        <ul class="list1" style="display: none;">
         <!--PRODUCTO 1-->
             <li class="col-xs-12">
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
@@ -791,7 +791,7 @@
         <!--=========================================
               VITRINA DE  PRODUCTOS EN CUADRÍCULA
         ==========================================-->
-        <ul class="grid2" style="display: none">
+        <ul class="grid2" >
 
             <!-- PRODUCTO 1 -->
             <li class="col-lg-3 col-md-3  col-sm-6 col-xs-12">
@@ -1016,7 +1016,7 @@
         <!--=========================================
              VITRINA DE  PRODUCTOS EN LISTA
        ==========================================-->
-        <ul class="list2">
+        <ul class="list2" style="display: none">
             <!--PRODUCTO 1-->
             <li class="col-xs-12">
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
