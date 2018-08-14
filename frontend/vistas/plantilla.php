@@ -97,20 +97,20 @@ if (isset($_GET["ruta"])) {
 
     }
 
-   /*===========================================
-             LISTA BLANCA URL AMIGABLES
-    ============================================*/
+    /*===========================================
+              LISTA BLANCA URL AMIGABLES
+     ============================================*/
 
-   if($ruta != null){
+    if ($ruta != null || $rutas[0] == "articulos-gratis" || $rutas[0] == "lo-mas-vendido" || $rutas[0] == "lo-mas-visto") {
         include "modulos/productos.php";
-   }else{
+    } else {
         include "modulos/error404.php";
 
-   }
+    }
 
-}else{
-  include "modulos/slide.php";
-  include "modulos/destacados.php";
+} else {
+    include "modulos/slide.php";
+    include "modulos/destacados.php";
 }
 ?>
 

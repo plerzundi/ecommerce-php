@@ -1,7 +1,6 @@
 <!--==========================================
         BANNER
 ===========================================-->
-
 <figure class="banner">
     <img src="http://localhost/backend/vistas/img/banner/default.jpg" class="img-responsive" width="100%">
     <div class="textoBanner textoDer">
@@ -11,20 +10,47 @@
     </div>
 </figure>
 
-<!--=========================================
-        BARRA DE PRODUCTOS GRATIS
-==========================================-->
-<div class="container-fluid well well-sm barraProductos">
+<?php
+
+$titulosModulos = array("ARTÍCULOS GRATUITOS", "LO MÁS VENDIDO", "LO MÁS VISTOS");
+$rutaModulos = array("articulos-gratis","lo-mas-vendido","lo-mas-visto");
+
+if ($titulosModulos[0] == "ARTÍCULOS GRATUITOS") {
+    $ordenar = "id";
+    $item = "precio";
+    $valor = 0;
+    $gratis = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor);
+}
+
+if ($titulosModulos[1] == "LO MÁS VENDIDO") {
+    $ordenar = "ventas";
+    $item = null;
+    $valor = null;
+    $ventas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor);
+}
+
+if ($titulosModulos[2] == "LO MÁS VISTOS") {
+    $ordenar = "vistas";
+    $item = null;
+    $valor = null;
+    $vistas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor);
+}
+
+$modulos =array($gratis,$ventas,$vistas);
+
+for ($i = 0; $i < count($titulosModulos); $i++) {
+
+    echo '<div class="container-fluid well well-sm barraProductos">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 organizarProductos">
                 <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-default btnGrid" id="btnGrid0">
+                    <button type="button" class="btn btn-default btnGrid" id="btnGrid' . $i . '">
                         <i class="fa fa-th" aria-hidden="true"></i>
                         <span class=" col-xs-0 pull-right"> GRID</span>
                     </button>
 
-                    <button type="button" class="btn btn-default btnList" id="btnList0">
+                    <button type="button" class="btn btn-default btnList" id="btnList' . $i . '">
                         <i class="fa fa-list" aria-hidden="true"></i>
                         <span class=" col-xs-0 pull-right"> LIST</span>
                     </button>
@@ -34,72 +60,61 @@
     </div>
 </div>
 
-<!--=========================================
-      VITRINA DE  PRODUCTOS GRATIS
-==========================================-->
 <div class="container-fluid productos">
     <div class="container">
         <div class="row">
-            <!--=========================================
-                      BARRA DE TITULO
-            ==========================================-->
-            <div class="col-xs-12 tituloDestacado">
-                <!--==========================================-->
-                <div class="col-sm-6 col-xs-12">
+        
+        <div class="col-xs-12 tituloDestacado">
+        
+           <div class="col-sm-6 col-xs-12">
                     <h1>
-                        <small>ARTÍCULOS GRATUITOS</small>
+                        <small>'.$titulosModulos[$i].'</small>
                     </h1>
                 </div>
-                <!--==========================================-->
-                <div class="col-sm-6 col-xs-12">
-                    <a href="articulos-gratis">
+                
+                 <div class="col-sm-6 col-xs-12">
+                    <a href="'.$rutaModulos[$i].'">
 
                         <button class="btn btn-default backColor pull-right" type="button">
                             VER MÁS <span class="fa fa-chevron-right"></span>
                         </button>
                     </a>
                 </div>
-                <!--==========================================-->
-            </div>
+                
+                     </div>
             <div class="clearfix"></div>
             <hr>
-        </div>
+          </div>
+          
+              <ul class="grid'.$i.'">';
 
-        <!--=========================================
-              VITRINA DE  PRODUCTOS EN CUADRÍCULA
-        ==========================================-->
-        <ul class="grid0">
-            <!-- PRODUCTO 1 -->
-
-            <li class="col-lg-3 col-md-3  col-sm-6 col-xs-12">
-                <!--==========================================-->
-
+    foreach ($modulos[$i] as $key => $value) {
+        echo '<li class="col-lg-3 col-md-3  col-sm-6 col-xs-12">
                 <figure>
                     <a href="#" class="pixelProducto">
-                        <img src="http://localhost/backend/vistas/img/productos/accesorios/accesorio04.jpg"
+                        <img src="http://localhost/backend/'.$value["portada"].'"
                              class="img-responsive">
                     </a>
                 </figure>
-                <!--==========================================-->
-                <h4>
+                
+                      <h4>
                     <small>
                         <a href="#" class="pixelProducto">
-                            collar de diamantes
+                            '.$value["titulo"].'
                             <br>
                             <br>
                         </a>
                     </small>
                 </h4>
-                <!--==========================================-->
-                <div class="col-xs-6  precio">
+                
+                  <div class="col-xs-6  precio">
                     <h2>
-                        <small>GRATIS</small>
+                        <small> '.$value["precio"].'</small>
                     </h2>
                 </div>
-                <!--==========================================-->
-                <div class="col-xs-6 enlaces">
+                  <div class="col-xs-6 enlaces">
                     <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-default btn-xs deseos" idProducto="470"
+                        <button type="button" class="btn btn-default btn-xs deseos" idProducto=" '.$value["id"].'"
                                 data-toggle="tooltip" title="Agregar a mi lista de deseos">
                             <i class="fa fa-heart" aria-hidden="true"></i>
                         </button>
@@ -113,6 +128,35 @@
                     </div>
                 </div>
             </li>
+                  ';
+    }
+
+         echo '</ul>
+                </div>
+                    </div>';
+}
+
+
+
+?>
+
+
+
+        <!--=========================================
+              VITRINA DE  PRODUCTOS EN CUADRÍCULA
+        ==========================================-->
+
+            <!-- PRODUCTO 1 -->
+
+
+                <!--==========================================-->
+
+                <!--==========================================-->
+
+                <!--==========================================-->
+
+                <!--==========================================-->
+
 
             <!-- PRODUCTO 2 -->
             <li class="col-lg-3 col-md-3  col-sm-6 col-xs-12">
