@@ -33,10 +33,11 @@ class ModeloProductos
     static public function mdlMostrarSubCategorias($tabla, $item, $valor)
     {
         $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-        $stmt->bindParam(":" . $item, $valor, PDO::PARAM_INT);
+        $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
+        $stmt = null;
     }
 
     /*===========================================================
@@ -63,5 +64,20 @@ class ModeloProductos
         $stmt->close();
         $stmt = null;
     }
+
+
+    /*===========================================================
+                   MOSTRAR INFO-PRODUCTO
+   ============================================================*/
+    static public function mdlMostrarInfoProducto($tabla, $item, $valor)
+    {
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+        $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+        $stmt->close();
+        $stmt = null;
+    }
+
 
 }

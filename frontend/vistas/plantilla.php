@@ -12,19 +12,19 @@
     <title>Tienda Virtual</title>
 
     <?php
-      $servidor = Ruta::ctrRutaServidor();
-      $icono = ControladorPlantilla::ctrEstiloPlantilla();
-      echo  '<link rel="icon" href="'.$servidor.$icono["icono"].'">';
+    $servidor = Ruta::ctrRutaServidor();
+    $icono = ControladorPlantilla::ctrEstiloPlantilla();
+    echo '<link rel="icon" href="' . $servidor . $icono["icono"] . '">';
 
-      /*==========================================================
-                  MANTENER FIJA LA RUTA DEL PROYECTO
-      ==========================================================*/
-      $url = Ruta::ctrRuta();
-     ?>
+    /*==========================================================
+                MANTENER FIJA LA RUTA DEL PROYECTO
+    ==========================================================*/
+    $url = Ruta::ctrRuta();
+    ?>
 
-     <!--==========================================================
-                      PLUGINS CSS
-     ============================================================-->
+    <!--==========================================================
+                     PLUGINS CSS
+    ============================================================-->
 
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/font-awesome.min.css">
@@ -65,37 +65,53 @@ include "modulos/cabezote.php";
 
 $rutas = array();
 $ruta = null;
+$infoProducto = null;
 
 if (isset($_GET["ruta"])) {
-   $rutas = explode("/", $_GET["ruta"]);
+    $rutas = explode("/", $_GET["ruta"]);
 
-   $item = "ruta";
-   $valor = $rutas[0];
+    $item = "ruta";
+    $valor = $rutas[0];
 
 
-/*===========================================
-        URL AMIGABLES DE CATEGORÍAS
-============================================*/
-
-   $rutaCategorias = ControladorProductos::ctrMostrarCategorias($item, $valor);
-
-   if($rutas[0] == $rutaCategorias["ruta"]){
-     $ruta = $rutas[0];
-   }
-
-   /*===========================================
-             URLS AMIGABLES SUBCATEGORÍAS
+    /*===========================================
+            URL AMIGABLES DE CATEGORÍAS
     ============================================*/
+
+    $rutaCategorias = ControladorProductos::ctrMostrarCategorias($item, $valor);
+
+    if ($rutas[0] == $rutaCategorias["ruta"]) {
+        $ruta = $rutas[0];
+    }
+
+    /*===========================================
+              URLS AMIGABLES SUBCATEGORÍAS
+     ============================================*/
 
     $rutaSubCategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
 
     foreach ($rutaSubCategorias as $key => $value) {
 
-      if($rutas[0] == $value["ruta"]){
-        $ruta = $rutas[0];
-      }
+        if ($rutas[0] == $value["ruta"]) {
+            $ruta = $rutas[0];
+        }
 
     }
+
+
+    /*===========================================
+              URLS AMIGABLES PRODUCTOS
+     ============================================*/
+
+    $rutaProductos = ControladorProductos::ctrMostrarInfoProducto($item,$valor);
+
+    if ($rutas[0] == $rutaProductos["ruta"] ){
+
+        $infoProducto = $rutas[0];
+
+    }
+
+
 
     /*===========================================
               LISTA BLANCA URL AMIGABLES
@@ -103,9 +119,10 @@ if (isset($_GET["ruta"])) {
 
     if ($ruta != null || $rutas[0] == "articulos-gratis" || $rutas[0] == "lo-mas-vendido" || $rutas[0] == "lo-mas-visto") {
         include "modulos/productos.php";
+    }else if($infoProducto != null){
+        include "modulos/info_producto.php";
     } else {
         include "modulos/error404.php";
-
     }
 
 } else {
@@ -114,9 +131,9 @@ if (isset($_GET["ruta"])) {
 }
 ?>
 
-      <!--==========================================================
-                       JAVASCRIPT PERSONALIZADOS
-      ============================================================-->
+<!--==========================================================
+                 JAVASCRIPT PERSONALIZADOS
+============================================================-->
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/cabezote.js"></script>
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/slide.js"></script>
