@@ -15,28 +15,32 @@ $servidor = Ruta::ctrRutaServidor();
 
 <?php
 
-$titulosModulos = array("ARTÍCULOS GRATUITOS", "LO MÁS VENDIDO", "LO MÁS VISTOS");
+$titulosModulos = array("ARTÍCULOS GRATUITOS", "LO MÁS VENDIDO", "LO MÁS VISTO");
 $rutaModulos = array("articulos-gratis","lo-mas-vendido","lo-mas-visto");
+
+
+$base =0;
+$tope = 4;
 
 if ($titulosModulos[0] == "ARTÍCULOS GRATUITOS") {
     $ordenar = "id";
     $item = "precio";
     $valor = 0;
-    $gratis = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor);
+    $gratis = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor,$base,$tope);
 }
 
 if ($titulosModulos[1] == "LO MÁS VENDIDO") {
     $ordenar = "ventas";
     $item = null;
     $valor = null;
-    $ventas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor);
+    $ventas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor,$base,$tope);
 }
 
-if ($titulosModulos[2] == "LO MÁS VISTOS") {
+if ($titulosModulos[2] == "LO MÁS VISTO") {
     $ordenar = "vistas";
     $item = null;
     $valor = null;
-    $vistas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor);
+    $vistas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor,$base,$tope);
 }
 
 $modulos =array($gratis,$ventas,$vistas);
