@@ -1,5 +1,6 @@
 <?php
 $servidor = Ruta::ctrRutaServidor();
+$url = Ruta::ctrRuta();
 ?>
 <!--==========================================
         BANNER
@@ -59,9 +60,13 @@ $servidor = Ruta::ctrRutaServidor();
 <div class="container-fluid productos">
     <div class="container">
         <div class="row">
-            <ul class="breadcrumb fondoBreadcrumb lead">
-                <li><a href="#">INICIO</a></li>
-                <li class="active"><?php echo $rutas[0]; ?></li>
+            <!--==========================================
+                            BREADCRUMB
+            ===========================================-->
+
+            <ul class="breadcrumb fondoBreadcrumb  text-uppercase">
+                <li><a href="<?php echo $url; ?>">INICIO</a></li>
+                <li class="active pagActiva"><?php echo $rutas[0]; ?></li>
 
             </ul>
             <?php

@@ -95,3 +95,18 @@ $.scrollUp({
 });
 
 
+/*=============================================
+    MIGAS DE PAN
+=============================================*/
+
+var pagActiva = $(".pagActiva").html();
+
+if ( pagActiva != null){
+
+    var pagRegActiva = pagActiva.replace(/-/g," ");
+    $(".pagActiva").html(pagRegActiva);
+}
+
+
+
+

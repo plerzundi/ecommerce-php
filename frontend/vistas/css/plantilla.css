@@ -31,6 +31,11 @@ a:visited, a:link, a:focus, a:hover, a:active{
   color: white;
 }
 
+.fondoBreadcrumb{
+  margin-bottom: 0px;
+  background: rgba(0,0,0,0);
+}
+
 /*=============================================
  REDES SOCIALES
 =============================================*/
