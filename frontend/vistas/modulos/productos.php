@@ -114,6 +114,7 @@ $url = Ruta::ctrRuta();
             $base = 0;
             $tope = 12;
             $productos = ControladorProductos::ctrMostrarProductos($ordenar, $item2, $valor2, $base, $tope);
+            $listaProductos = ControladorProductos::ctrListarProductos($ordenar,$item2,$valor2);
 
             if (!$productos) {
                 echo '<div class="col-xs-12 error404 text-center">
@@ -302,6 +303,44 @@ $url = Ruta::ctrRuta();
     }
 
 ?>
+            <div align="center">
+
+                <?php
+                    if (count($listaProductos) !=0){
+                        $pagProductos = ceil(count($listaProductos)/12);
+                        if($pagProductos > 4){
+
+                        }else{
+                            echo '<ul class="pagination">';
+
+                            for ($i =1; $i<=$pagProductos;$i++){
+
+                                echo '<li><a href="#">'.$i.'</a></li>';
+
+                            }
+
+                            echo '</ul>';
+                        }
+
+                    }
+
+                ?>
+                <!--
+                <ul class="pagination">
+                    <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a class="disabled">...</a></li>
+                    <li><a href="#">20</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                </ul>
+                -->
+            </div>
+
+
         </div>
     </div>
 </div>
