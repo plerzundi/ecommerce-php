@@ -49,8 +49,7 @@ class ModeloProductos
 
         if($item != null) {
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY $ordenar DESC 
-            LIMIT $base, $tope");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY $ordenar DESC LIMIT $base, $tope");
             $stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetchAll();
