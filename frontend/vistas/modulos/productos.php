@@ -322,7 +322,6 @@ $url = Ruta::ctrRuta();
     }
 
 ?>
-
             <div class="clear-fix"></div>
 
             <div align="center">
