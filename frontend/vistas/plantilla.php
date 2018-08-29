@@ -12,6 +12,7 @@
     <title>Tienda Virtual</title>
 
     <?php
+    session_start();
     $servidor = Ruta::ctrRutaServidor();
     $icono = ControladorPlantilla::ctrEstiloPlantilla();
     echo '<link rel="icon" href="' . $servidor . $icono["icono"] . '">';

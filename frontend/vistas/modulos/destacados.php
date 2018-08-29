@@ -26,21 +26,24 @@ if ($titulosModulos[0] == "ARTÍCULOS GRATUITOS") {
     $ordenar = "id";
     $item = "precio";
     $valor = 0;
-    $gratis = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor,$base,$tope);
+    $modo = "DESC";
+    $gratis = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor,$base,$tope,$modo);
 }
 
 if ($titulosModulos[1] == "LO MÁS VENDIDO") {
     $ordenar = "ventas";
     $item = null;
     $valor = null;
-    $ventas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor,$base,$tope);
+    $modo = "DESC";
+    $ventas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor,$base,$tope,$modo);
 }
 
 if ($titulosModulos[2] == "LO MÁS VISTO") {
     $ordenar = "vistas";
     $item = null;
     $valor = null;
-    $vistas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor,$base,$tope);
+    $modo = "DESC";
+    $vistas = ControladorProductos::ctrMostrarProductos($ordenar,$item, $valor,$base,$tope,$modo);
 }
 
 $modulos =array($gratis,$ventas,$vistas);
