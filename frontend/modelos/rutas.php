@@ -13,7 +13,7 @@ class Ruta{
   /*==============================
     RUTA DEL SERVIDOR
   ===============================*/
-  public function ctrRutaServidor(){
+  static public function ctrRutaServidor(){
     return "http://localhost/backend/";
   }
 

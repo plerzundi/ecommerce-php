@@ -60,6 +60,17 @@ class ControladorProductos
 
     }
 
+    /*===========================================================
+                 MOSTRAR BANNER
+ ============================================================*/
+    static public function ctrMostrarBanner($ruta)
+    {
+        $tabla = "banner";
+        $respuesta = ModeloProductos::mdlMostrarBanner($tabla, $ruta);
+        return $respuesta;
+    }
+
+
 
 
 
