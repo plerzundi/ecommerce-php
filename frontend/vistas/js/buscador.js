@@ -2,6 +2,16 @@
              BUSCADOR
 ======================================= */
 
+$("#buscador a").click(function () {
+
+    if($("#buscador input").val() == ""){
+        $("#buscador a").attr("href","");
+
+    }
+
+
+});
+
 $("#buscador input").change(function () {
 
     var  busqueda = $("#buscador input").val();
@@ -25,12 +35,12 @@ $("#buscador input").change(function () {
 ======================================= */
 $("#buscador input").focus(function () {
 
-$(document).keyup(function (event) {
-    event.preventDefault();
-    if(event.keyCode == 13 && $("#buscador input").val() !=""){
-        var rutaBuscador = $("#buscador a").attr("href");
-        window.location.href = rutaBuscador;
-    }
+    $(document).keyup(function (event) {
+        event.preventDefault();
+        if (event.keyCode == 13 && $("#buscador input").val() != "") {
+            var rutaBuscador = $("#buscador a").attr("href");
+            window.location.href = rutaBuscador;
+        }
+    });
 });
 
-});

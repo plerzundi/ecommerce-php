@@ -75,13 +75,16 @@ $(window).scroll(function () {
 
     if (window.matchMedia("(min-width:768px)").matches) {
 
-        if (scrollY < ($(".banner").offset().top) - 150) {
+        if($(".banner").html() != null) {
 
-            $(".banner img").css({"margin-top": -scrollY / 3 + "px"})
+            if (scrollY < ($(".banner").offset().top) - 150) {
 
-        } else {
+                $(".banner img").css({"margin-top": -scrollY / 3 + "px"})
 
-            scrollY = 0;
+            } else {
+
+                scrollY = 0;
+            }
         }
 
     }
@@ -115,8 +118,16 @@ if ( pagActiva != null){
 
 var url = window.location.href;
 var indice = url.split("/");
+var pagActual = indice[5];
 
-$("#item"+indice.pop()).addClass("active");
+if(isNaN(pagActual)){
+    $("#item1").addClass("active");
+
+}else{
+    $("#item"+pagActual).addClass("active");
+}
+
+
 
 
 
