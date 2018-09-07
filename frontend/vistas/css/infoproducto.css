@@ -1,0 +1,31 @@
+/*=================================
+    INFOPRODUCTO
+==================================*/
+
+.infoproducto figure.visor img{
+    display:none;
+    cursor:crosshair;
+}
+
+.infoproducto figure.visor img:first-child{
+    display: block;
+}
+
+.flexslider{
+    cursor: pointer;
+}
+
+.lupa{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.lupa img{
+    position: relative;
+    margin-top:-100%;
+    margin-left:-50%;
+    width: 160%;
+}

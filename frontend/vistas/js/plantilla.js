@@ -85,6 +85,7 @@ $(window).scroll(function () {
 
                 scrollY = 0;
             }
+
         }
 
     }

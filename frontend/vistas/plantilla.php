@@ -29,6 +29,8 @@
 
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/flexslider.css">
+
 
     <!--==========================================================
                 HOJAS DE ESTILOS PERSONALIZADAS
@@ -37,6 +39,8 @@
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/cabezote.css">
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/slide.css">
     <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/productos.css">
+    <link rel="stylesheet" href="<?php echo $url; ?>vistas/css/infoProducto.css">
+
 
     <!--==========================================================
                 PLUGINS DE JAVASCRIPT
@@ -45,6 +49,8 @@
     <script src="<?php echo $url; ?>vistas/js/plugins/bootstrap.min.js"></script>
     <script src="<?php echo $url; ?>vistas/js/plugins/jquery.easing.js"></script>
     <script src="<?php echo $url; ?>vistas/js/plugins/jquery.scrollUp.js"></script>
+    <script src="<?php echo $url; ?>vistas/js/plugins/jquery.flexslider.js"></script>
+
 
 
 </head>
@@ -144,6 +150,8 @@ if (isset($_GET["ruta"])) {
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/slide.js"></script>
 <script type="text/javascript" src="<?php echo $url; ?>vistas/js/buscador.js"></script>
+<script type="text/javascript" src="<?php echo $url; ?>vistas/js/infoProducto.js"></script>
+
 
 
 </body>
