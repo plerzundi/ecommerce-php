@@ -28,10 +28,17 @@ INFO-PRODUCTOS
 <div class="container-fluid infoproducto">
     <div class="container">
         <div class="row">
-            <!=======================================
-            VISOR DE PRODUCTOS
-            ========================================>
-            <div class="col-md-5 col-sm-6 col-xs-12 visorImg">
+            <?php
+            /*==================================
+                VISOR DE IMAGENES
+            ===================================*/
+            $item= "ruta";
+            $valor=$rutas[0];
+            $infoproducto = ControladorProductos::ctrMostrarInfoProducto($item,$valor);
+
+            if ($infoproducto["tipo"] == "fisico"){
+                echo '
+                   <div class="col-md-5 col-sm-6 col-xs-12 visorImg">
                 <figure class="visor">
                     <img id="lupa1" class="img-thumbnail"
                          src="http://localhost/backend/vistas/img/multimedia/tennis-verde/img-01.jpg"
@@ -79,12 +86,83 @@ INFO-PRODUCTOS
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div>';
+            }else{
+
+                /*=======================================
+                VISOR DE VÍDEOS
+                ========================================*/
+
+                echo '<div class="col-sm-6 col-xs-12 visorImg">
+                    <iframe class="videoPresentacion" src="https://www.youtube.com/embed/AlhJsZ1EBIU?rel=0&autoplay=1" frameborder="0" width="100%" allowfullscreen>
+                    </iframe>
+                    </div>
+                ';
+
+            }
+            ?>
 
             <!=======================================
                         PRODUCTO
             ========================================>
-            <div class="col-md-7 col-sm-6 col-xs-12 ">
+
+            <?php
+            if ($infoproducto["tipo"] == "fisico"){
+
+                echo '<div class="col-md-7 col-sm-6 col-xs-12 ">';
+
+            }else{
+
+                echo '<div class="col-sm-6 col-xs-12 ">';
+
+            }
+
+            ?>
+
+
+                <!=======================================
+                    REGRESAR EN LA TIENDA
+                ========================================>
+                <div class="col-xs-6">
+                    <h6>
+                        <a href="javascript:history.back()" class="text-muted">
+                            <i class="fa fa-reply"></i> Continuar Comprando
+                        </a>
+                    </h6>
+                </div>
+
+                <!=======================================
+                 COMPARTIR EN REDES SOCIALES
+                ========================================>
+                <div class="col-xs-6">
+                    <h6><a class="dropdown-toggle pull-right text-muted" data-toggle="dropdown" href="#"><i
+                                    class="fa fa-plus"></i>
+                            Compartir</a>
+
+                        <ul class="dropdown-menu pull-right compartirRedes">
+                            <li>
+                                <p class="btnFacebook">
+                                    <i class="fa fa-facebook"></i>
+                                    Facebook
+                                </p>
+                            </li>
+
+                            <li>
+                                <p class="btnGoogle">
+                                    <i class="fa fa-google"></i>
+                                    Google
+                                </p>
+                            </li>
+                        </ul>
+                    </h6>
+                </div>
+                <div class="clear-fix"></div>
+                <!=======================================
+                    ESPACIO PARA EL PRODUCTO
+                ========================================>
+
+
+
 
                 <!=======================================
                 ZONA LUPA
